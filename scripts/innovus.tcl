@@ -356,6 +356,7 @@ add_tieoffs
 enics_message "Fixing DRVs before CTS" 
 opt_design -pre_cts -drv
 
+enics_create_stage_reports -pop_snapshot yes
 enics_end_stage 
 
 
@@ -372,7 +373,7 @@ enics_message "Reading in clock spec from $design(clock_tree_spec)" low
 reset_ccopt_config
 source $design(clock_tree_spec)
 
-ccopt_design -report_dir "$design(reports_dir)/cts/ccopt_design"  
+ccopt_design -report_dir "$design(reports_dir)/cts/ccopt_design"  //# run CTS
 # skew balanced clock tree
 # clock_design
 enics_message "Finished running ccopt_design"
